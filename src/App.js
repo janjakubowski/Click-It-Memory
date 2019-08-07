@@ -7,17 +7,41 @@ import puppies from "./puppies.json";
 
 class App extends Component {
 
+  updateScore = () => {
+    let current = this.state.score.current + 1;
+    let high = this.state.score.high;
+    if ( current === 12 ) 
+      { console.log("winnner, winner"); }
+    if ( current > high) { high = current; };
+    console.log (`current: ${current} | high: ${high}`);
+    const score = {
+      current,
+      high
+    };
+    this.setState({ score });
+  };
+
+  puppyClicked = id => {
+
+    const puppy = this.state.puppies.find(puppy => puppy.id === id);
+
+    if (puppy.clicked === true) {
+      console.log("loser");
+    } else {
+      puppy.clicked = true;
+      this.updateScore();
+    }
+
+    this.setState({ puppies });
+  };
+
+
   state = {
     puppies: puppies,
     score: {
       current: 0,
       high: 0
     }
-  };
-
-  puppyClicked = id => {
-    const puppies = this.state.puppies.filter(puppy => puppy.id !== id);
-    this.setState({ puppies });
   };
 
   render () {

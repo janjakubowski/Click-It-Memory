@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PuppyCard from "./components/PuppyCard";
+import ScoreCard from "./components/ScoreCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import puppies from "./puppies.json";
@@ -48,6 +49,10 @@ class App extends Component {
     return (
       <Wrapper>
         <Title>Play All Day</Title>
+        <ScoreCard 
+          current={this.state.score.current}
+          high={this.state.score.high}
+        />
         {this.state.puppies.map(puppy => (
           <PuppyCard
             puppyClicked={this.puppyClicked}

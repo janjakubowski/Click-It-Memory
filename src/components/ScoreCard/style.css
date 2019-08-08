@@ -1,7 +1,19 @@
+.scoreCard {
+    width: 100%;
+}
+
 .score {
     width: 100%;
     text-align: center;
     font-size: 2rem;
+    color: #2A77AE;
+    margin-bottom: 10px;
+}
+
+.message {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
     color: #2A77AE;
     margin-bottom: 40px;
 }

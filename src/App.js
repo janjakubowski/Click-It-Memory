@@ -8,18 +8,42 @@ import puppies from "./puppies.json";
 
 class App extends Component {
 
+  resetClicked = () => {
+    const puppies = this.state.puppies.map( puppy => 
+      {
+        puppy.clicked = false; 
+        return puppy;
+      });
+    this.setState({ puppies });
+  }
+  
+  gameOver = isWinner => {
+    this.resetClicked();
+    let current = 0;
+    let high = this.state.score.high;
+    let message = ( isWinner ? 
+      "winner, winner, chicken dinner, click any puppy to start new game"
+      :
+      "sorry, you already clicked that one, click any puppy to start new game"
+    );
+    let score = { current, high, message };
+    this.setState({ score });
+  };
+
   updateScore = () => {
     let current = this.state.score.current + 1;
     let high = this.state.score.high;
-    if ( current === 12 ) 
-      { console.log("winnner, winner"); }
-    if ( current > high) { high = current; };
-    console.log (`current: ${current} | high: ${high}`);
-    const score = {
-      current,
-      high
-    };
+    let message = "Good, click another one";
+
+    if ( current > high) 
+      { 
+        high = current; 
+        message = "new high score - keep going"
+      };
+    let score = { current, high, message };
     this.setState({ score });
+
+    if ( current === 12 ) { this.gameOver(true) };
   };
 
   puppyClicked = id => {
@@ -27,13 +51,14 @@ class App extends Component {
     const puppy = this.state.puppies.find(puppy => puppy.id === id);
 
     if (puppy.clicked === true) {
-      console.log("loser");
+      let isWinner = false;
+      this.gameOver(isWinner);
     } else {
       puppy.clicked = true;
+      this.setState({ puppies });
       this.updateScore();
     }
 
-    this.setState({ puppies });
   };
 
 
@@ -41,7 +66,8 @@ class App extends Component {
     puppies: puppies,
     score: {
       current: 0,
-      high: 0
+      high: 0,
+      message: "Welcome!"
     }
   };
 
@@ -52,6 +78,7 @@ class App extends Component {
         <ScoreCard 
           current={this.state.score.current}
           high={this.state.score.high}
+          message={this.state.score.message}
         />
         {this.state.puppies.map(puppy => (
           <PuppyCard

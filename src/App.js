@@ -8,9 +8,19 @@ import puppies from "./puppies.json";
 
 class App extends Component {
 
+  shuffle = () => {
+    const puppies = this.state.puppies;
+    for (var i = puppies.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var puppy = puppies[i];
+        puppies[i] = puppies[j];
+        puppies[j] = puppy;
+    };
+    this.setState({ puppies });
+  }
+  
   resetClicked = () => {
-    const puppies = this.state.puppies.map( puppy => 
-      {
+    const puppies = this.state.puppies.map( puppy => {
         puppy.clicked = false; 
         return puppy;
       });
@@ -19,8 +29,9 @@ class App extends Component {
   
   gameOver = isWinner => {
     this.resetClicked();
-    let current = 0;
-    let high = this.state.score.high;
+    this.shuffle();
+    const current = 0;
+    const high = ( isWinner ? 12 : this.state.score.high);
     let message = ( isWinner ? 
       "winner, winner, chicken dinner, click any puppy to start new game"
       :
@@ -35,10 +46,9 @@ class App extends Component {
     let high = this.state.score.high;
     let message = "Good, click another one";
 
-    if ( current > high) 
-      { 
+    if ( current > high) { 
         high = current; 
-        message = "new high score - keep going"
+        message = "new high score - keep going";
       };
     let score = { current, high, message };
     this.setState({ score });
@@ -58,7 +68,7 @@ class App extends Component {
       this.setState({ puppies });
       this.updateScore();
     }
-
+    this.shuffle();
   };
 
 

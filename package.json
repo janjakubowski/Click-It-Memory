@@ -2,7 +2,7 @@
   "name": "rickety-clickity",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://janjakubowski.github.io/Click-It-Memory/src/",
+  "homepage": "https://janjakubowski.github.io/Click-It-Memory/",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.8.6",

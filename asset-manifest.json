@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Click-It-Memory/src/static/css/main.8ca9a9cf.chunk.css",
-    "main.js": "/Click-It-Memory/src/static/js/main.b5bf7770.chunk.js",
-    "main.js.map": "/Click-It-Memory/src/static/js/main.b5bf7770.chunk.js.map",
-    "runtime~main.js": "/Click-It-Memory/src/static/js/runtime~main.a909e356.js",
-    "runtime~main.js.map": "/Click-It-Memory/src/static/js/runtime~main.a909e356.js.map",
-    "static/js/2.884c28c3.chunk.js": "/Click-It-Memory/src/static/js/2.884c28c3.chunk.js",
-    "static/js/2.884c28c3.chunk.js.map": "/Click-It-Memory/src/static/js/2.884c28c3.chunk.js.map",
-    "index.html": "/Click-It-Memory/src/index.html",
-    "precache-manifest.2c1be74eebbe4f0412aef05aa7012bca.js": "/Click-It-Memory/src/precache-manifest.2c1be74eebbe4f0412aef05aa7012bca.js",
-    "service-worker.js": "/Click-It-Memory/src/service-worker.js",
-    "static/css/main.8ca9a9cf.chunk.css.map": "/Click-It-Memory/src/static/css/main.8ca9a9cf.chunk.css.map"
+    "main.css": "/Click-It-Memory/static/css/main.8ca9a9cf.chunk.css",
+    "main.js": "/Click-It-Memory/static/js/main.b5bf7770.chunk.js",
+    "main.js.map": "/Click-It-Memory/static/js/main.b5bf7770.chunk.js.map",
+    "runtime~main.js": "/Click-It-Memory/static/js/runtime~main.3515bafb.js",
+    "runtime~main.js.map": "/Click-It-Memory/static/js/runtime~main.3515bafb.js.map",
+    "static/js/2.884c28c3.chunk.js": "/Click-It-Memory/static/js/2.884c28c3.chunk.js",
+    "static/js/2.884c28c3.chunk.js.map": "/Click-It-Memory/static/js/2.884c28c3.chunk.js.map",
+    "index.html": "/Click-It-Memory/index.html",
+    "precache-manifest.1ee7120cb29de834b125076bae01b383.js": "/Click-It-Memory/precache-manifest.1ee7120cb29de834b125076bae01b383.js",
+    "service-worker.js": "/Click-It-Memory/service-worker.js",
+    "static/css/main.8ca9a9cf.chunk.css.map": "/Click-It-Memory/static/css/main.8ca9a9cf.chunk.css.map"
   }
 }

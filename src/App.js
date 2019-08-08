@@ -31,29 +31,26 @@ class App extends Component {
     this.resetClicked();
     this.shuffle();
     const current = 0;
-    const high = ( isWinner ? 12 : this.state.score.high);
-    let message = ( isWinner ? 
+    const high = ( isWinner ? this.state.puppies.length : this.state.score.high);
+    const message = ( isWinner ? 
       "winner, winner, chicken dinner, click any puppy to start new game"
       :
       "sorry, you already clicked that one, click any puppy to start new game"
     );
-    let score = { current, high, message };
+    const score = { current, high, message };
     this.setState({ score });
   };
 
   updateScore = () => {
-    let current = this.state.score.current + 1;
-    let high = this.state.score.high;
-    let message = "Good, click another one";
+    const current = this.state.score.current + 1;
+    const newHigh = ( current > this.state.score.high ? true : false );
+    const high = ( newHigh ? current : this.state.score.high);
+    const message = ( newHigh ? "new high score - keep going" : "Good, click another one");
 
-    if ( current > high) { 
-        high = current; 
-        message = "new high score - keep going";
-      };
     let score = { current, high, message };
     this.setState({ score });
 
-    if ( current === 12 ) { this.gameOver(true) };
+    if ( current === this.state.puppies.length ) { this.gameOver(true) };
   };
 
   puppyClicked = id => {
